@@ -354,7 +354,10 @@ class Auth:
         me = await client.get_me()
         me_id = me.id
 
-        topic_id = message.reply_to_message_id
+        topic_id = message.reply_to_top_message_id 
+        if topic_id is None:
+            topic_id = message.reply_to_message_id
+
         from_user_id = Topics.get_from_user_id(me_id, topic_id)
         
         t = etr.t14
