@@ -1,0 +1,13 @@
+[Unit]
+Description=topics_bot
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/topics_bot/src/
+ExecStart=python3.10 /root/topics_bot/src/__main__.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
